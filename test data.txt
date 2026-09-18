@@ -1,0 +1,76 @@
+SPACE
+Name: AI & Machine Learning
+Description: Learn the fundamentals of Artificial Intelligence, Machine Learning,
+Deep Learning, data types, learning approaches, and MLOps.
+
+PROJECT
+Name: AI & ML Fundamentals
+Description: Build a strong foundation in Artificial Intelligence and Machine Learning.
+Goal: Explain fundamental AI and ML concepts, distinguish different learning approaches,
+understand data preprocessing, and apply these concepts to practical examples.
+
+TUTOR TESTS
+
+1. What is Artificial Intelligence according to the learning material?
+
+2. Explain that in simpler words.
+
+3. Give me a practical example.
+
+4. What is the relationship between AI, Machine Learning, and Deep Learning?
+
+5. What are the three primary types of machine learning?
+
+6. Explain supervised, unsupervised, and reinforcement learning in a simple table.
+
+7. What is the difference between labeled and unlabeled data?
+
+8. What are common data preprocessing techniques?
+
+9. What is MLOps?
+
+10. What is the current stock price of NVIDIA today?
+   EXPECTED: Unsupported / insufficient evidence.
+
+
+QUIZ
+
+Q1. Which type of learning uses labeled data?
+Answer: Supervised Learning
+
+Q2. Which is an example of unsupervised learning?
+Answer: Customer Segmentation
+
+Q3. Which type of learning learns through feedback?
+Answer: Reinforcement Learning
+
+Q4. Deep Learning is a specialized area of what?
+Answer: Machine Learning
+
+
+INTENTIONAL MISTAKE
+
+Question:
+Which type of learning learns through feedback?
+
+Wrong answer:
+Supervised Learning
+
+Correct answer:
+Reinforcement Learning
+
+
+OPEN-ENDED ASSESSMENT
+
+Question:
+Explain the difference between supervised and unsupervised learning,
+and provide one practical example of each.
+
+Intentional wrong answer:
+"Supervised learning uses unlabeled data to find patterns.
+Unsupervised learning uses labeled data to predict outcomes."
+
+
+TARGETED FOLLOW-UP
+
+Explain why my answer was incorrect and what concept I misunderstood.
