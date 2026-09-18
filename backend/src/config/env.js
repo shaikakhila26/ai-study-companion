@@ -9,6 +9,14 @@ module.exports = {
   port: parseInt(required('PORT', '5000'), 10),
   nodeEnv: required('NODE_ENV', 'development'),
   clientUrl: required('CLIENT_URL', 'http://localhost:5173'),
+  // CLIENT_URL may be a single origin or a comma-separated list, so that the
+  // production Vercel domain and local dev can both be allowed at once.
+  clientOrigins: required('CLIENT_URL', 'http://localhost:5173')
+    .split(',')
+    .map((o) => o.trim())
+    .filter(Boolean),
+  // Set to 'true' to also allow Vercel preview deployments (*.vercel.app).
+  allowVercelPreviews: required('ALLOW_VERCEL_PREVIEWS', 'false') === 'true',
 
   mongodbUri: required('MONGODB_URI', 'mongodb://localhost:27017/ai-study-companion'),
 
