@@ -17,7 +17,20 @@ const adminRoutes = require('./routes/adminRoutes');
 const app = express();
 
 app.use(helmet());
-app.use(cors({ origin: env.clientUrl, credentials: true }));
+app.use(
+  cors({
+    origin(origin, callback) {
+      // Non-browser clients (curl, health checks, server-to-server) send no Origin.
+      if (!origin) return callback(null, true);
+      if (env.clientOrigins.includes(origin)) return callback(null, true);
+      if (env.allowVercelPreviews && /^https:\/\/[a-z0-9-]+\.vercel\.app$/i.test(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error(`Origin not allowed by CORS: ${origin}`));
+    },
+    credentials: true,
+  })
+);
 app.use(express.json({ limit: '2mb' }));
 app.use(morgan(env.nodeEnv === 'production' ? 'combined' : 'dev'));
 
@@ -29,6 +42,15 @@ app.use(
     max: 120,
     standardHeaders: true,
     legacyHeaders: false,
+  })
+);
+
+app.get('/', (req, res) =>
+  res.json({
+    name: 'AI Study Companion API',
+    status: 'ok',
+    health: '/health',
+    docs: 'https://github.com/shaikakhila26/ai-study-companion',
   })
 );
 
